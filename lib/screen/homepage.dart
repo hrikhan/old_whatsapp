@@ -85,7 +85,34 @@ class Homepage extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            showDialog(context: context, builder: (context) => const Chat());
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: const Text('Select an option'),
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        ListTile(
+                          leading: const Icon(Icons.camera_alt),
+                          title: const Text('Camera'),
+                        ),
+                        ListTile(
+                          leading: const Icon(Icons.image),
+                          title: const Text('Gallery'),
+                        ),
+                        ListTile(
+                          leading: const Icon(Icons.video_call),
+                          title: const Text('Video'),
+                        ),
+                        ListTile(
+                          leading: const Icon(Icons.mic),
+                          title: const Text('Audio'),
+                        ),
+                      ],
+                    ),
+                  );
+                });
           },
           backgroundColor: customcolors.primary,
           child: const Icon(Icons.message, color: Colors.white),
